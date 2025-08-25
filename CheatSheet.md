@@ -245,13 +245,29 @@ for(int i = 0; i<x; i++)
 
 
 
-// ⁡⁣⁣⁢STRING⁡
+// ⁡⁣⁣⁢𝗦𝗧𝗥𝗜𝗡𝗚⁡
 
 In string we have to initlize the last char as null " \0" in CPP 
 
 String is always NULL terminated 
 
 ⁡
+// ⁡⁣⁣⁢𝗥𝗲𝗳𝗲𝗿𝗻𝗲𝗰𝗲⁡ 
+
+Refernce is just the reference or alias to the variable, It doesnt has its own memory or is not a variable like pointer 
+It is used so that we dont create extra variable or memory space or copies 
+
+int main ()
+{
+    int x = 5;
+    int &ref = x;
+    cout<< ref + 1;
+      
+}
+
+output: 6
+
+Note: & is value of address and refernce it depends on the context - if we pass it with datatype then its a refernce or its a value at 
 
 
 // ⁡⁣⁣⁢𝗣𝗢𝗜𝗡𝗧𝗘𝗥𝗦⁡
