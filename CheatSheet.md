@@ -171,6 +171,20 @@ for(int i =0; i<n; i++)
 }
 
 
+⁡⁣⁢⁣𝗔𝗿𝗿𝗮𝘆 𝘄𝗶𝘁𝗵 𝗳𝘂𝗻𝗰𝘁𝗶𝗼𝗻𝘀 ⁡
+
+When we pass array to a function, the pointer of the array goes and it decays as it misses out the size and actuall address in the memory 
+hence we have to pass size with the arr
+
+void printarr(int arr[], int size);
+
+            or 
+
+void printarr(int (&arr)[array_size]);
+
+
+Hence we have Advance array in CPP STL - Which ill write down in STL  
+
 
 // ⁡⁣⁣⁢2D Array ⁡
 
@@ -293,6 +307,8 @@ Note: Reading how to read pointer is important
 when we define data type with pointer, it isnt the datatype of that pointer. Its pointing to that type 
 
 datatype of pointer itself is unsigned int 
+
+Note: in CPP it depends on the system if its 32 bit system then its 4 byte or for 64 bit system it is 8 byte
 
 
 
@@ -455,7 +471,7 @@ Note: This is call by refernce
 
 
 
-// ⁡⁣⁢⁣Pointers in 1D Array ⁡
+// ⁡⁣⁢⁡⁣⁣⁢Pointers in 1D Array ⁡
 
 
 Note: Name of the array is the constant pointer to 1st element of 1d array 
@@ -469,7 +485,7 @@ a = x
 cout<< *a+1;
 
 
-// ⁡⁣⁢⁣Pointers in 2D array ⁡
+// ⁡⁣⁢⁡⁣⁣⁢Pointers in 2D array ⁡
 
 int x [3][4] = 
 {
@@ -493,6 +509,236 @@ x + 2 = 2016
 **x = 5
     
 
+// ⁡⁣⁣⁢STL⁡ 
+
+#include<bits/stdc++.h>   - It includes all the library of C++
+
+
+1) Algorithms 
+2) Containers
+3) Functions
+4) Iterators
+   
+
+⁡⁣⁢⁣Pairs ⁡
+   
+   so far we know we can only have single value for variable or else use any Data structure to store multiple varible 
+
+   we want to have pair then we can use pair container ( which is from utility package )
+ 
+
+    ⁡⁣⁢⁣Original Syntax:⁡
+
+   pair<int,double> p = {1, 3.4};
+   cout<< p.first << p.second;
+
+    ⁡⁣⁢⁣Nested Pairs: ⁡
+
+   pair<int, pair< int, int>> p = {1,{1,2}}
+   cout<< p.first << p.second.first
+
+    ⁡⁣⁢⁣Pairs of array:⁡
+
+   pair<int,int> arr[] = {
+    {1,2},
+    {2,3}
+   } 
+
+   cout<< arr[1].second 
+
+   Note: each element is one pair 
+
+
+
+// ⁡⁣⁣⁢Containers⁡
+
+
+⁡⁢⁣⁢𝗩𝗲𝗰𝘁𝗼𝗿⁡
+
+Vector is a container which is dynamic in nature 
+when we dont the size we will be required to store in the data structure we can use vector
+
+vector <data_type> vector_name;
+
+
+⁡⁣⁢⁣Member functions:⁡
+
+Element Access:
+at()
+[]
+front()
+back()
+data()
+
+Modifiers:
+insert()
+emplace()
+push_back()
+emplace_back()
+pop_back()
+resize()
+swap()
+erase()
+clear()
+
+1) insert()       TC : O(N)
+   
+#include<bits/stdc++.h>
+using namespace std;
+
+int main()
+{
+    vector<int> v;
+
+    // insert element at 8 at 2
+
+    v.insert(v.begin()+2, 8);
+
+}
+
+A) insert an element at given index
+    v.insert(pos, val);
+    v.insert(v.begin()+4, 6);
+
+B) insert multiple copies of an element
+    v.insert(pos, n, val)
+    v.insert(v.begin()+3, 2, 9);
+
+C) insert list of elements 
+    v.insert(pos, {val1, val2});
+    v.insert(v.begin()+2, {3,4,5});
+
+D) insert the range of elements 
+    v.insert(pos, first, last)
+    v.insert(v.begin()+2, l.begin(), l.end())
+
+    List<int> l{2,3,4,5,6};
+
+    Note: Range can be any container of STL
+
+
+
+2) Push_back()     TC: O(1)
+
+vector<int> v={1,2,3,4}
+v.push_back(9);
+
+output: 1,2,3,9
+
+It will directly add element to the last position 
+
+
+3) Access the element by index : v[] or v.at()     TC: O(1)
+   
+   vector<int> v={1,2,3,4}
+   cout<< v[2];
+
+4) Update the element by index : v[]              TC: O(1)
+
+    vector<int> v={1,2,3,4}
+    v[2] = 5;
+
+5) Finding the size of vector : v.size()    
+   
+    vector<int> v={1,2,3,4}
+    v.size();
+
+6) Traversing vector             TC:O(N)
+   
+   vector<int> v={1,2,3,4}
+
+   for(int i =0; i<v.size(); i++)        
+   {
+    cout<< v[i];
+
+   }
+
+7) Delete Element
+   
+   vector<char> v = {'a', 'c', 'f', 'd', 'z'};
+    v.pop_back();                  TC: O(1)
+    v.erase(find(v.begin(), v.end(), 'f'));          TC:O(N)
+    v.erase(v.begin()+2, v.begin()+4):         TC:O(N)
+
+
+⁡⁢⁣⁢Iterators⁡
+   
+datatype :: iterator iterator_name = position
+
+vector<int>::iterator it = v.begin();
+it++
+cout<< *it   [ its like a pointer and we need to deference it ]
+
+Note:   when we do begin() it will start from the element
+        when we do end() it will end after the element
+
+
+for(auto it = v.begin(); it != v.end(); it++)
+{
+    cout<< *(it) << " " ;
+
+}
+
+
+⁡⁢⁣⁢𝗔𝗱𝘃𝗮𝗻𝗰𝗲𝗱 𝗔𝗿𝗿𝗮𝘆 - 𝗦𝗧𝗟 ⁡
+
+std::array<int, 5> array;
+
+Nore : This advanced array is a container that encapsulate fixed size c style array itself, what does this mean? 
+
+Behind the scene: there must a class which has methods and parameters passed are taken as their class paramters
+
+⁡⁣⁢⁣TO ACCEESS⁡
+
+at()    // this will do the bound check and will error if it exceeds 
+[]      // this wont give error
+front()
+back()
+data() // gives access to the underlying array;
+size() // it return the number of elements in the array 
+max_size()  // it will return the number of elements array can hold ( the size which array was declared )
+swap(new_array) // it will swap
+empty()  // this is to check if the array is emepty or no it will give true or false
+fill(value)  // this method is used to fill the array with particular value 
+
+
+
+
+
+
+
+
+
+
+
+
+
+⁡⁣⁣⁢𝗗𝗮𝘁𝗮 𝗦𝘁𝗿𝘂𝗰𝘁𝘂𝗿𝗲 𝗮𝗻𝗱 𝗔𝗹𝗴𝗼𝗿𝗶𝘁𝗵𝗺𝘀 ⁡
+
+
+⁡⁣⁣⁢𝗦𝗲𝗮𝗿𝗰𝗵𝗶𝗻𝗴 𝗮𝗻𝗱 𝗦𝗼𝗿𝘁𝗶𝗻𝗴⁡
+
+
+1) Linear Search 
+2) Binary Search 
+
+
+Basic Principle of Searching an element is
+
+As Input:
+
+1) we will have list of elements 
+2) and key 'x' to search
+
+Data structure:
+
+Array
+   If Sorted : Linear and Binary 
+   If unsorted : Linear
+
+Returns: 
+
+1 or -1
 
 
 
