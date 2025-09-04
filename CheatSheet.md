@@ -171,7 +171,7 @@ for(int i =0; i<n; i++)
 }
 
 
-⁡⁣⁢⁣𝗔𝗿𝗿𝗮𝘆 𝘄𝗶𝘁𝗵 𝗳𝘂𝗻𝗰𝘁𝗶𝗼𝗻𝘀 ⁡
+⁡⁣⁢⁣⁡⁣⁣⁢// Array with Functions⁡
 
 When we pass array to a function, the pointer of the array goes and it decays as it misses out the size and actuall address in the memory 
 hence we have to pass size with the arr
