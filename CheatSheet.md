@@ -713,7 +713,7 @@ fill(value)  // this method is used to fill the array with particular value
 
 
 
-⁡⁣⁣⁢𝗗𝗮𝘁𝗮 𝗦𝘁𝗿𝘂𝗰𝘁𝘂𝗿𝗲 𝗮𝗻𝗱 𝗔𝗹𝗴𝗼𝗿𝗶𝘁𝗵𝗺𝘀 ⁡
+⁡⁣⁣⁢𝗔𝗹𝗴𝗼𝗿𝗶𝘁𝗵𝗺𝘀 ⁡
 
 
 ⁡⁣⁣⁢𝗦𝗲𝗮𝗿𝗰𝗵𝗶𝗻𝗴 𝗮𝗻𝗱 𝗦𝗼𝗿𝘁𝗶𝗻𝗴⁡
@@ -740,6 +740,34 @@ Returns:
 
 1 or -1
 
+
+
+
+
+
+
+
+
+
+⁡⁣⁣⁢Data Structure ⁡
+
+1) Array - Done Above
+2) String - Done Above
+   
+3) Linkedin 
+
+ Linked List is a Data structure where all the node ( the elements ) are place anywhere in the heap and are closely linked thru a pointer 
+ Unline array or arraylist its not continous
+ 
+ why Linked List is better ? 
+
+ -> so in arraylist when we dynamically increase size, when it reaches the last index it will create present size * 2 capacity tho its all done in O(1) but for optimization Linked List is better 
+
+ How to create Linked List? 
+
+ -> In Cpp we dont have such datatype, hence we make our user defined data type which has two things:
+ 1) Value 
+ 2) Pointer to next node 
 
 
 
