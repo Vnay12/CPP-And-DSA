@@ -1,7 +1,6 @@
 /*
 =========================================================
     Program: Linear Search Implementation in C++
-    Purpose: Demonstrate a simple linear search algorithm
 =========================================================
 
 Steps:
