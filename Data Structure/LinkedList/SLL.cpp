@@ -210,9 +210,12 @@ Node *insertAfterKey(Node *head, int data, int key)
     if (p == NULL)
     {
         cout << "Key element was not found " << endl;
+        return head;
     }
     else
     {
+
+        newnode->next = p->next;
         p->next = newnode;
     }
     return head;
@@ -229,20 +232,17 @@ Node *deleteAtFirst(Node *head)
     Node *p = head;
     if (p == NULL)
     {
-        return head;
+        return NULL;
     }
 
     if (p->next == NULL)
     {
-        head = NULL;
-        return head;
+        delete head;
+        return NULL;
     }
 
-    if (p->next->next != NULL)
-    {
-        head = p->next;
-        
-    }
+    head = head->next;
+    delete p;
     return head;
 }
 /*
@@ -251,28 +251,28 @@ Time Complexity: O(1)
 Space Complexity: O(1)
  */
 
- // Delete at Last
+// Delete at Last
 Node *deleteAtLast(Node *head)
 {
     Node *p = head;
     if (p == NULL)
     {
-        return head;
+        return NULL;
     }
 
     if (p->next == NULL)
     {
-        head = NULL;
-        return head;
+        delete head;
+        return NULL;
     }
-    else
+
+    while (p->next->next != NULL)
     {
-        while (p->next->next != NULL){
-            p = p->next;
-        }
-        p->next = NULL;
-        
+        p = p->next;
     }
+    delete p->next;
+    p->next = NULL;
+
     return head;
 }
 /*
@@ -280,8 +280,6 @@ Approach: Delete at Last
 Time Complexity: O(N)
 Space Complexity: O(1)
  */
-
-
 
 int main()
 {
