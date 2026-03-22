@@ -281,6 +281,23 @@ Time Complexity: O(N)
 Space Complexity: O(1)
  */
 
+// Reverse SLL using Recursion
+
+Node *reverseSLLRecursion(Node *head)
+{
+    Node *p = head;
+
+    if (p->next->next == NULL)
+    {
+        return head;
+    }
+    reverseSLLRecursion(p->next);
+    head = p->next;
+    head->next = p;
+    p->next = NULL;
+    return head;
+}
+
 int main()
 {
 
@@ -320,5 +337,11 @@ int main()
     // Delete At End
     cout << endl;
     head = deleteAtLast(head);
+    printSLL(head);
+
+    // Reverse SLL Recursion
+    cout << endl;
+    cout << "Testing \n";
+    head = reverseSLLRecursion(head);
     printSLL(head);
 }
